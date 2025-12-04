@@ -1,0 +1,198 @@
+/* ============ FOOTER WRAPPER ============ */
+.footer-wrapper {
+  background: #2A2A2A;
+  color: #ddd;
+  width: 100%;
+  
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ============ TOP SUBSCRIBE STRIP ============ */
+.footer-subscribe-strip {
+  padding: 40px 60px;
+  border-bottom: 1px solid #222;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-subscribe-left h4 {
+  color: white;
+  margin-bottom: 5px;
+}
+
+.footer-subscribe-left p {
+  opacity: 0.8;
+  font-size: 14px;
+}
+
+/* Email input */
+.footer-input-wrap {
+  display: flex;
+  gap: 10px;
+  width: 360px;
+}
+
+.footer-input-wrap input {
+  flex: 1;
+  background: #222;
+  border: 1px solid #333;
+  padding: 12px;
+  border-radius: 6px;
+  color: white;
+}
+
+.footer-input-wrap button {
+  background: #ffb74d;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* ============ MAIN FOOTER CONTENT ============ */
+.footer-content {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr 1fr;
+  gap: 60px;
+  padding: 60px;
+}
+
+/* -------- About Section -------- */
+.footer-about .footer-logo {
+  width: 56px;
+  margin-bottom: 15px;
+}
+
+.footer-desc {
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+.footer-contact p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0;
+  opacity: 0.9;
+}
+
+.footer-socials {
+  margin-top: 15px;
+  display: flex;
+  gap: 12px;
+}
+
+.footer-socials span {
+  width: 35px;
+  height: 35px;
+  background: #222;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* -------- Navigation Columns -------- */
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-links h4 {
+  color: white;
+  margin-bottom: 15px;
+}
+
+.footer-links p {
+  margin: 8px 0;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+/* -------- Stats -------- */
+.footer-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.footer-stats h3 {
+  font-size: 26px;
+  color: #ffb74d;
+}
+
+.footer-stats p {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* ============ BOTTOM LEGAL ROW ============ */
+.footer-bottom {
+  padding: 25px 60px;
+  border-top: 1px solid #222;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #aaa;
+  font-size: 13px;
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 25px;
+}
+
+.footer-bottom-links p {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 900px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-links {
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  .footer-stats {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .footer-subscribe-strip {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .footer-input-wrap {
+    width: 100%;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+@media (max-width: 500px) {
+  .footer-subscribe-strip {
+    padding: 30px 20px;
+  }
+
+  .footer-content {
+    padding: 40px 20px;
+    gap: 40px;
+  }
+
+  .footer-bottom {
+    padding: 20px;
+  }
+}

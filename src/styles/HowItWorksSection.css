@@ -1,0 +1,170 @@
+/* General container */
+.how-container {
+  width: 100%;
+  max-width: 100%;    /* allow full width */
+  background: white;  /* covers green */
+  margin: 0;
+  padding: 0;
+    transform: translateX(3px);
+}
+
+
+/* -------------------- STEPS SECTION -------------------- */
+.steps-section {
+  text-align: center;
+  padding: 40px 0;
+  background: white;        /* white background */
+  
+  width: 100vw;             /* full browser width */
+  position: relative;
+  left: 50%;
+  right: 100%;
+  margin-left: -50vw;       /* pull to edges */
+  margin-right: -50vw;      /* pull to edges */
+}
+
+.steps-title {
+  color: #777;
+  font-size: 14px;  
+}
+
+.steps-subtitle {
+  font-size: 24px;
+  margin-top: 5px;
+  font-weight: 600;
+}
+
+.steps-grid {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.step-card {
+  background: white;
+  width: 300px;
+  padding: 25px 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.20);
+  transition: 0.2s;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+}
+
+.icon-box {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+}
+
+.icon {
+  font-size: 24px;
+  color: #333;
+}
+
+.step-number {
+  font-size: 32px;
+  color: #ddd;
+}
+
+.step-heading {
+  margin-top: 5px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.step-text {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #555;
+}
+
+.start-btn {
+  margin-top: 25px;
+  padding: 12px 30px;
+  background: #F78B3F;
+  color: white;
+  font-size: 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.start-btn:hover {
+  background: #f7741a;
+}
+
+/* -------------------- TRUST SECTION -------------------- */
+.trust-section {
+  background: #f8f8f8;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.trust-title {
+  color: #777;
+  font-size: 14px;
+}
+
+.trust-subtitle {
+  margin-top: 5px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.trust-grid {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.trust-card {
+  width: 280px;
+  padding: 20px;
+    background: white;
+}
+
+.trust-icon {
+  font-size: 40px;
+  color: #183A1D33;
+  margin-bottom: 10px;
+  border-radius: circle;
+  background-color: #183A1D33;
+}
+
+
+.trust-value {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.trust-label {
+  margin-top: 5px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.trust-text {
+  margin-top: 5px;
+  color: #555;
+  font-size: 14px;
+}
+
+/* -------------------- RESPONSIVE -------------------- */
+@media (max-width: 768px) {
+  .steps-grid,
+  .trust-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}

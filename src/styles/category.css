@@ -1,0 +1,99 @@
+.category-section {
+  padding: 40px 60px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  /* subtle border to give the box more presence */
+  border: 1.5px solid rgba(0,0,0,0.06);
+  max-width: 1200px;
+  margin: 24px auto;
+  /* shift the category box right to match the hero shift */
+   /* transform: translateX(3px); */
+}
+
+@media (max-width: 1200px) {
+  .category-section { transform: none; margin: 24px 20px; }
+}
+
+.category-section h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.view-all {
+  background: transparent;
+  border: 1px solid rgba(20,83,45,0.12);
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: #14532d;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.subtitle {
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.category-grid {
+  display: flex;
+  gap: 25px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.category-card {
+  width: 180px;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  overflow: hidden;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: orange;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
+
+.info {
+  padding: 12px;
+}
+
+.info h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.info p {
+  font-size: 13px;
+  color: gray;
+}

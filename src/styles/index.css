@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f5f5;
+  /* top padding to account for fixed navbar height */
+  padding-top: 72px;
+}
+
+.App {
+  text-align: center;
+  margin-top: 40px;
+}

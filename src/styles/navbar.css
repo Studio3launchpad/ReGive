@@ -1,0 +1,106 @@
+.nav {
+  /* make navbar fixed and span the full viewport width */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  box-sizing: border-box;
+  background: white;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav-logo {
+  font-size: 26px;
+  font-weight: 800;
+  color: #14532d;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  font-weight: 500;
+  text-decoration: none; /* remove underline */
+  color: #15803d;  
+}
+
+.nav-links a {
+  color: #15803d;        /* your green color */
+  text-decoration: none; /* remove underline */
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #0f5c2c;        /* darker green on hover */
+}
+
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* SIGN IN BUTTON */
+.signin-btn {
+  background: #0f3e1d;      /* give it a background so sizes match */
+  border: none;
+  padding: 10px 22px;
+  border-radius: 10px;
+  color: white;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* GET STARTED BUTTON */
+.start-btn {
+  background: #f79340;
+  color: white;
+  border: none;
+  padding: 12px 26px;   /* Increased padding */
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;      /* Optional */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;       /* Prevents vertical overflow */
+  height: auto;
+}
+
+.start-btn:hover {
+  background: #e07b30;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    margin-top: 10px;
+    gap: 15px;
+  }
+
+  .nav-actions {
+    margin-top: 10px;
+    gap: 10px;
+  }
+}
+.nav-links li {
+  color: #14532d;
+  cursor: pointer;
+}

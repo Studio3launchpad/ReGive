@@ -1,0 +1,32 @@
+.stat-card {
+  background: rgba(0, 50, 0, 0.4);
+  backdrop-filter: blur(6px);
+  border: 1px solid #166534;
+  border-radius: 12px;
+  padding: 24px;
+  color: white;
+}
+
+.stat-card h2 {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.stat-card p {
+  color: #c7c7c7;
+  margin-top: 6px;
+  font-size: 15px;
+}
+
+.stats-container {
+  padding: 0 40px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+@media (max-width: 600px) {
+  .stats-container {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,162 @@
+/* MAIN WRAPPER */
+.impact-wrapper {
+  width: 100%;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* ---------- TOP IMPACT AREA ---------- */
+.impact-section {
+  padding: 80px 20px;
+  background: linear-gradient(140deg, #0c441d, #0f5a22, #0b3817);
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+}
+
+.impact-subtitle {
+  opacity: 0.8;
+  font-size: 15px;
+}
+
+.impact-title {
+  font-size: 28px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+/* Stats Grid */
+.impact-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 900px;
+  margin: auto;
+  margin-bottom: 40px;
+  font-family: "Roboto", sans-serif;
+}
+
+.impact-stat h3 {
+  font-size: 28px;
+  margin: 10px 0 5px;
+}
+
+.impact-stat p {
+  opacity: 0.9;
+}
+
+.impact-icon {
+  font-size: 32px;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+/* Button */
+.impact-button {
+  background: #ffb74d;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+
+/* ---------- BLACK BACKGROUND SECTION (NEW) ---------- */
+.subscribe-section {
+  background: #2A2A2A;
+  padding: 100px 20px 120px;
+  display: flex;
+  justify-content: center;
+}
+
+
+/* ---------- SUBSCRIBE CARD ---------- */
+.subscribe-card {
+  background: linear-gradient(#2D5A34 40% , #183A1D 60%);
+  padding: 40px 30px;
+  max-width: 750px;
+  margin: auto;
+  border-radius: 20px;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.subscribe-title {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.subscribe-text {
+  margin-top: 8px;
+  opacity: 0.9;
+}
+
+/* Input + Button */
+.subscribe-input-wrap {
+  margin: 25px auto;
+  display: flex;
+  gap: 10px;
+  max-width: 420px;
+}
+
+.subscribe-input-wrap input {
+  flex: 1;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: none;
+}
+
+.subscribe-input-wrap button {
+  background: #ffb74d;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.subscribe-privacy {
+  font-size: 13px;
+  opacity: 0.8;
+  margin-bottom: 25px;
+}
+
+/* Bottom Stats */
+.subscribe-stats {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+}
+
+.subscribe-stats h4 {
+  font-size: 20px;
+}
+
+.subscribe-stats p {
+  opacity: 0.8;
+}
+
+
+/* -------- RESPONSIVE -------- */
+@media (max-width: 768px) {
+  .impact-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .subscribe-input-wrap {
+    flex-direction: column;
+  }
+
+  .subscribe-stats {
+    flex-direction: column;
+    gap: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .impact-stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

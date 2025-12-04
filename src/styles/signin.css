@@ -1,0 +1,174 @@
+/* ===== Global container ===== */
+.signin-page {
+  display: flex;
+  justify-content: center;   /* center horizontally */
+  align-items: center;        /* center vertically */
+  height: 100vh;              /* full screen height */
+  padding: 20px;
+  background: #f7f7f7;        /* optional */
+  margin-top: 60px;
+  transform: translateX(400px);
+}
+
+.signin-container {
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  background: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  margin: auto;
+}
+
+
+/* ===== Top small text ===== */
+.signin-top-text {
+  font-size: 13px;
+  line-height: 1.4;
+  color: #444;
+  margin-bottom: 25px;
+}
+
+/* ===== Toggle Buttons ===== */
+.signin-toggle {
+  display: flex;
+  background: #f1f1f1;
+  padding: 4px;
+  border-radius: 40px;
+  margin-bottom: 30px;
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 10px 0;
+  border-radius: 40px;
+  text-decoration: none;
+  color: #444;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.toggle-btn.active {
+  background-color: #0f3e1d;
+  color: #fff !important;
+}
+
+/* ===== Labels ===== */
+label {
+  display: block;
+  text-align: left;
+  font-size: 13px;
+  margin-bottom: 6px;
+  margin-top: 15px;
+  color: #333;
+}
+
+/* ===== Input Wrapper ===== */
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  background: #fff;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.input-wrapper .icon {
+  margin-right: 8px;
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+.input-wrapper input {
+  flex: 1;
+  border: none;
+  font-size: 14px;
+  outline: none;
+}
+
+/* ===== Remember Me Row ===== */
+.remember-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0 20px;
+}
+
+.remember-row a {
+  font-size: 13px;
+  color: #2d5a34;
+}
+
+/* ===== Login or Sign Up Button ===== */
+.signin-btn {
+  width: 100%;
+  background-color: #0f3e1d;
+  color: #fff;
+  padding: 12px 0;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+/* ===== Divider (Or continue with) ===== */
+.divider {
+  text-align: center;
+  margin: 30px 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.divider span {
+  background: #fff;
+  padding: 0 10px;
+  font-size: 13px;
+  color: #777;
+  z-index: 1;
+}
+
+.divider::before {
+  content: "";
+  width: 95%;
+  height: 1px;
+  background: #e5e5e5;
+  position: absolute;
+}
+
+/* ===== Social Login Buttons ===== */
+.social-row {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.social-btn {
+  width: 60px;
+  height: 45px;
+  background: #f8f8f8;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Icons color control (optional) */
+.social-btn:nth-child(1) { color: #ea4335; }  /* Google */
+.social-btn:nth-child(2) { color: #0a66c2; }  /* LinkedIn */
+.social-btn:nth-child(3) { color: #1877f2; }  /* Facebook */
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+  .signin-container {
+    margin-top: 25px;
+  }
+}

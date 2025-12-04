@@ -1,0 +1,289 @@
+/* ---------- TRUST & SAFETY CSS (use in place of your current file) ---------- */
+
+/* make sizing predictable */
+* { box-sizing: border-box; }
+
+/* Page container */
+.trust-page {
+  width: 100%;
+  background-color: #ffffff;
+  margin: 0;           /* remove left margin that caused offset */
+  padding: 0;
+  padding-top: 88px;   /* leave space for navbar (adjust if needed) */
+  margin-left: -5px;
+}
+
+/* ---------------- HERO ---------------- */
+.trust-hero {
+     background: linear-gradient(90deg, #14532d, #0f3d1a);
+  color: white;
+  width: 100vw !important;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  transform: translate(6px);
+  padding: 60px 20px;
+  justify-content: center;
+  margin-top: 50px;
+  text-align: center;
+  height: 250px;
+}
+
+/* Keep hero content constrained and centered */
+.trust-hero-content {
+  width: 100%;
+  max-width: 1900px;   /* aligns with the grid below */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+
+}
+
+/* larger icon centered above the title */
+.trust-hero-icon {
+  font-size: 48px;
+  opacity: 0.95;
+}
+
+/* hero title - slightly bolder */
+.trust-hero h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.1px;
+}
+
+/* hero paragraph - limited width and centered */
+.trust-hero p {
+  font-size: 18px;
+  max-width: 900px;
+  margin: 0;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.95);
+}
+
+/* ---------------- INFO SECTION ---------------- */
+.trust-info {
+  text-align: center;
+  padding: 60px 20px 80px;
+  background: #fff;
+}
+
+/* constrain headings to same content width */
+.trust-info h3,
+.trust-subtitle {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* main heading style */
+.trust-info h3 {
+  margin-bottom: 12px;
+  font-size: 20px;
+  color: #222;
+  font-weight: 700;
+}
+
+/* subtitle style */
+.trust-subtitle {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 40px;
+  font-weight: 500;
+}
+
+/* ---------------- GRID ---------------- */
+/* center the grid and constrain width to match hero */
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+  max-width: 1100px;
+  margin: 0 auto;     /* center horizontally */
+  padding: 0 18px;    /* small horizontal padding on narrow screens */
+  box-sizing: border-box;
+}
+
+/* ---------------- CARD ---------------- */
+/* card background white slightly off-white for subtle contrast */
+.trust-card {
+  background: #ffffff;
+  padding: 30px 24px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(6, 18, 12, 0.04);
+  border: 1px solid rgba(10,10,10,0.02);
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* icon style inside card */
+.trust-card-icon {
+  font-size: 34px;
+  color: #0d4625;
+  margin-bottom: 14px;
+}
+
+/* card title */
+.trust-card h4 {
+  font-size: 16px;
+  margin: 0 0 12px 0;
+  color: #0c2f1a;
+  font-weight: 700;
+}
+
+/* card paragraph */
+.trust-card p {
+  font-size: 14px;
+  color: #606060;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 1200px) {
+  .trust-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1000px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    padding: 0 28px;
+  }
+
+  .trust-hero-content { padding: 0 20px; }
+}
+
+@media (max-width: 700px) {
+  .trust-grid {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+  }
+
+  .trust-hero {
+    padding: 40px 12px;
+  }
+
+  .trust-hero p {
+    font-size: 16px;
+    max-width: 420px;
+  }
+
+  .trust-card {
+    padding: 24px;
+    min-height: auto;
+  }
+}
+
+/* =========================
+   SAFETY TIPS SECTION
+========================= */
+
+.exchange-tips-section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-left: 80px;
+  background-color: #F9F9F8;
+}
+
+.exchange-tips-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.exchange-tips-header h4 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #777;
+  margin-bottom: 8px;
+}
+
+.exchange-tips-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* GRID */
+.exchange-tips-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+/* CARDS */
+.exchange-tip-card {
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 14px rgba(0,0,0,0.06);
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* ICON */
+.tip-icon {
+  background: #0d7f44; /* green circle */
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tip-icon i {
+  color: #fff;
+  font-size: 16px;
+}
+
+/* CONTENT */
+.tip-content h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.tip-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tip-content li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #555;
+  position: relative;
+  padding-left: 10px;
+}
+
+.tip-content li::before {
+  content: "•";
+  position: absolute;
+  color: #888;
+  left: 0;
+  top: 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .exchange-tips-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
