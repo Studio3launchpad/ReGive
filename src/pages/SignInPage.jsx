@@ -22,8 +22,11 @@ export default function SignInPage() {
         setLoading(true);
 
         try {
-            // Call the auth context signIn which talks to the API
-            const result = await auth.signIn({ email, password });
+            // backend requires "username", not "email"
+            const result = await auth.signIn({ 
+                username: email, 
+                password 
+            });
 
             // If signIn returned a token/user, navigate to the original page
             if (result?.token || result?.user) {
@@ -32,7 +35,7 @@ export default function SignInPage() {
                 setError('Login failed: invalid credentials');
             }
         } catch (err) {
-            setError(err?.message || 'Login failed');
+            setError(err?.response?.data?.detail || err?.message || 'Login failed');
         } finally {
             setLoading(false);
         }
