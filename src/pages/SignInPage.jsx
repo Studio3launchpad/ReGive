@@ -22,10 +22,10 @@ export default function SignInPage() {
         setLoading(true);
 
         try {
-            // backend requires "username", not "email"
+           
             const result = await auth.signIn({ 
-                username: email, 
-                password 
+               "email": "user@example.com",
+               "password": "string"
             });
 
             // If signIn returned a token/user, navigate to the original page
@@ -97,4 +97,4 @@ export default function SignInPage() {
             </div>
         </div>
     );
-}
+}  

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://regive.pythonanywhere.com/api/",
+  baseURL: "/api/",
   timeout: 10000,
 });
 
@@ -25,6 +25,7 @@ export function setAuthToken(token) {
     delete api.defaults.headers.common["Authorization"];
   }
 }
+
 
 // --- Categories ---
 export async function getCategories(params = {}) {
@@ -103,6 +104,7 @@ export async function getOrder(id) {
   return res.data;
 }
 
+
 // --- Addresses ---
 export async function getAddresses(params = {}) {
   const res = await api.get("addresses/", { params });
@@ -125,11 +127,10 @@ export async function login(credentials) {
 }
 
 export async function register(payload) {
-  // try common register endpoints; payload may include email, password, name
   try {
     const res = await api.post("auth/register/", payload);
     return res.data;
-  } catch (e) {
+  } catch {
     // fallback attempt
     const res = await api.post("auth/signup/", payload);
     return res.data;

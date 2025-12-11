@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import ProductCard from "../components/productcard";
-import "../styles/productDetails.css";
+import "../styles/ProductDetails.css"
 import { getItem } from "../services/api";
 
 export default function ProductDetails({ products = [], handleAddToCart }) {
