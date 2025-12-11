@@ -51,17 +51,18 @@
 .signin-btn {
   background: #0f3e1d;      /* give it a background so sizes match */
   border: none;
-  padding: 12px 24px; /* slightly larger and balanced */
+  padding: 20px 30px; /* slightly larger and balanced */
   border-radius: 10px;
   color: white;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 8px;
   cursor: pointer;
   text-align: center;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 120px; /* ensure visible width */
+  min-width: 140px; /* ensure visible width */
+  min-height: -40px;
 }
 
 /* GET STARTED BUTTON */
@@ -70,6 +71,7 @@
   color: white;
   border: none;
   padding: 12px 24px;   /* match signin padding */
+  margin-bottom: 8px;
   border-radius: 10px;
   cursor: pointer;
   font-weight: 600;
