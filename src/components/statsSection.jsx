@@ -1,5 +1,5 @@
 import "./../styles/stats.css";
-import StatCard from "./StatCard.jsx";
+// import StatCard from "../components/statCard.jsx";
 
 export default function StatsSection() {
   return (
