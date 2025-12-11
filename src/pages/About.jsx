@@ -13,7 +13,7 @@ export default function About() {
         <p className="subtitle">Building Africa’s Circular Economy</p>
         <h1 className="about-hero-text">
           Regive connects communities across Nigeria and Ghana to share pre-loved items,
-          reduce waste, and build a more sustainable future together.
+          reduce waste, and build a more sustainable future together with Regive.
         </h1>
       </section>
 
