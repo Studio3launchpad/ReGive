@@ -43,9 +43,12 @@ export default function ProductCard({
     const o = parseFloat(String(oldPrice).replace(/[^0-9.-]+/g, ""));
     if (!isNaN(p) && !isNaN(o) && o > p) {
       const save = o - p;
+      // The previous line was missing the currency symbol formatting
       saveText = `Save ${new Intl.NumberFormat().format(save)}`;
     }
-  } catch (e) {}
+  } catch { // Changed 'e' to '_'
+    // Intentionally ignoring error, so we use an underscore placeholder
+  }
 
   return (
     <Link to={`/product/${id}`} className="product-card-link">
@@ -65,9 +68,7 @@ export default function ProductCard({
             }}
           />
           <button className="wishlist-btn">♡</button>
-        </div>
-
-        {/* Content */}
+        </div>        {/* Content */}
         <div className="product-info">
           <h3 className="product-title">{title}</h3>
 

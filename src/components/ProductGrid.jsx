@@ -5,9 +5,9 @@ import { useEffect } from "react";
 import placeholder from "../assets/images/electronics.avif";
 const API_HOST = "https://regive.pythonanywhere.com";
 
-export default function ProductGrid({products}) {
+export default function ProductGrid({ products }) {
 
-  
+
 
   useEffect(() => {
     // Debug: confirm ProductGrid mounted and how many products
@@ -15,16 +15,16 @@ export default function ProductGrid({products}) {
   }, [products]);
 
   return (
-    <section className="product-section" style={{outline: '1px dashed #e11'}}>
+    <section className="product-section" style={{ outline: '1px dashed #e11' }}>
 
       {/* If no products, show a visible message and quick actions */}
       {(!products || (Array.isArray(products) && products.length === 0)) && (
-        <div style={{padding: 24, border: '1px solid #eee', borderRadius: 12, marginBottom: 18, background: '#fff9', textAlign: 'center'}}>
-          <h3 style={{margin: 0}}>No trending items available</h3>
-          <p style={{marginTop: 6}}>Either the API returned no items or there was a problem fetching them.</p>
-          <div style={{display: 'flex', gap: 8, justifyContent: 'center', marginTop: 12}}>
-            <button onClick={() => window.location.reload()} style={{padding: '8px 12px'}}>Reload</button>
-            <button onClick={() => console.log('[ProductGrid] debug products:', products)} style={{padding: '8px 12px'}}>Log products</button>
+        <div style={{ padding: 24, border: '1px solid #eee', borderRadius: 12, marginBottom: 18, background: '#fff9', textAlign: 'center' }}>
+          <h3 style={{ margin: 0 }}>No trending items available</h3>
+          <p style={{ marginTop: 6 }}>Either the API returned no items or there was a problem fetching them.</p>
+          <div style={{ display: 'flex', gap: 8, justifyContent: 'center', marginTop: 12 }}>
+            <button onClick={() => window.location.reload()} style={{ padding: '8px 12px' }}>Reload</button>
+            <button onClick={() => console.log('[ProductGrid] debug products:', products)} style={{ padding: '8px 12px' }}>Log products</button>
           </div>
         </div>
       )}
@@ -54,9 +54,8 @@ export default function ProductGrid({products}) {
             null
           );
 
-          // If the API returned a relative path (starts with '/') or doesn't include protocol,
-          // prepend the host so the browser can load it.
-          if (imageUrl && !imageUrl.startsWith('http')) {
+          // If it's a data URL (base64 image), use it directly; otherwise prepend API host for relative paths
+          if (imageUrl && !imageUrl.startsWith('http') && !imageUrl.startsWith('data:')) {
             if (imageUrl.startsWith('/')) imageUrl = API_HOST + imageUrl;
             else imageUrl = API_HOST + '/' + imageUrl.replace(/^\//, '');
           }

@@ -1,5 +1,6 @@
 import "../styles/SafetyPage.css";
 import { FaUserShield, FaLock, FaUsersCog, FaBook } from "react-icons/fa";
+import ReportForm from "../components/ReportForm";
 import Footer from "../components/Footer";
 
 export default function TrustSafety() {
@@ -140,7 +141,10 @@ export default function TrustSafety() {
 
             </div>
         </section>
-     
+
+        
+        <ReportForm />
+
         <Footer />
 
     </div>

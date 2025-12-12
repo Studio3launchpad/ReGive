@@ -22,10 +22,15 @@ export default function SignInPage() {
         setLoading(true);
 
         try {
-           
-            const result = await auth.signIn({ 
-               "email": "user@example.com",
-               "password": "string"
+            if (!email || !password) {
+                setError('Please provide email and password');
+                setLoading(false);
+                return;
+            }
+
+            const result = await auth.signIn({
+                email: email.trim(),
+                password,
             });
 
             // If signIn returned a token/user, navigate to the original page
@@ -54,7 +59,7 @@ export default function SignInPage() {
                 {auth?.user && (
                     <div className="signed-in-box">
                         <p>You are signed in as <strong>{auth.user?.email || auth.user?.username || JSON.stringify(auth.user)}</strong>.</p>
-                        <div style={{display: 'flex', gap: '8px'}}>
+                        <div style={{ display: 'flex', gap: '8px' }}>
                             <button className="signin-btn" onClick={() => navigate('/')}>Go Home</button>
                         </div>
                     </div>
@@ -82,7 +87,7 @@ export default function SignInPage() {
 
                     <button className="signin-btn" disabled={loading}>{loading ? 'Signing in...' : 'Sign In'}</button>
 
-                    {error && <div className="form-error" style={{color: 'crimson', marginTop: '8px'}}>{error}</div>}
+                    {error && <div className="form-error" style={{ color: 'crimson', marginTop: '8px' }}>{error}</div>}
                 </form>
 
                 <div className="divider">

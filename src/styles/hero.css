@@ -1,9 +1,7 @@
-
-
 /* Full-width green background */
 .hero-section {
   width: 100vw;
-  background: linear-gradient(180deg, #2D5A34 0%, #145C2B 100%);
+  background: linear-gradient(180deg, #2d5a34 0%, #145c2b 100%);
   padding: 100px 0;
 }
 
@@ -69,7 +67,7 @@
 
 .btn-outline {
   background: transparent;
-  border: 1px solid rgba(255,255,255,0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 14px 26px;
   border-radius: 12px;
   color: white;
@@ -157,9 +155,9 @@
 
 .stat-box {
   position: relative;
-  background: rgba(255,255,255,0.06);
+  background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(6px);
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 20px 18px 18px 18px;
   border-radius: 12px;
   min-width: 120px;
@@ -185,4 +183,69 @@
   background: #14532d;
   padding: 8px;
   border-radius: 50%;
+}
+
+/* Donation modal styles */
+.donation-modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  padding: 20px;
+}
+
+.donation-modal {
+  width: 100%;
+  max-width: 680px;
+  background: #fff;
+  color: #111;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  max-height: 90vh;
+  overflow: auto;
+}
+
+.donation-modal h3 {
+  margin-top: 0;
+}
+.donation-modal form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
+}
+.donation-modal form input,
+.donation-modal form textarea,
+.donation-modal form select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 6px;
+  box-sizing: border-box;
+}
+.donation-modal form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+.donation-modal .btn-yellow {
+  padding: 10px 16px;
+}
+.donation-modal .btn-outline {
+  padding: 10px 16px;
+}
+
+@media (max-width: 520px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+  .hero-image {
+    height: 260px;
+  }
+  .donation-modal {
+    padding: 16px;
+  }
 }

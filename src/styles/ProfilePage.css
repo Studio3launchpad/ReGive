@@ -1,0 +1,131 @@
+/* Outer wrapper: center the whole page and align with header container */
+.profile-wrapper {
+  max-width: 1100px;        /* total content width */
+  margin: 40px auto;        /* center horizontally on the page */
+  padding: 0 24px;          /* a bit of horizontal padding on small screens */
+  box-sizing: border-box;
+   display: flex;
+  justify-content: center;
+    align-items: center;
+  margin-top: 120px;
+
+}
+
+/* Page title */
+.profile-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 450px;
+  margin-left: 85px;
+}
+
+/* two-column layout: left menu fixed, right column flexible */
+.profile-grid {
+     width: 100%;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: 280px 1fr; /* left column fixed width, right column flexible */
+  gap: 90px;
+  align-items: start;
+  margin-left: 40px;
+}
+
+
+
+/* LEFT MENU: sized cards */
+.profile-menu .menu-card {
+    width: 400px;
+    max-width: 1100px;
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  padding: 18px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: border-color 0.15s, transform 0.12s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    margin-left: 60px;
+}
+
+.menu-card h3 {
+  font-size: 15px;
+  margin: 0 0 6px 0;
+}
+
+.menu-card p {
+  margin: 0;
+  font-size: 13px;
+  color: #6b6b6b;
+}
+
+.menu-card:hover { transform: translateY(-2px); border-color:#cfcfcf; }
+
+.menu-card.active {
+  background: #e8f5e9;
+  border-left: 4px solid #4caf50;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+}
+
+/* RIGHT COLUMN: make the form wider and centered inside the right column */
+.profile-form {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  padding: 26px;
+  border-radius: 8px;
+  max-width: 2080px;     /* limit how wide the form gets */
+  width: 500px;
+  margin: 0 auto;       /* center the form inside the right column */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+  margin-left: 140px;
+}
+
+/* form fields styling */
+.profile-form label {
+  display: block;
+  margin-top: 14px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.profile-form input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border: 1px solid #d1d1d1;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* edit button */
+.edit-btn {
+  margin-top: 24px;
+  width: 260px;            /* button width similar to Figma */
+  display: block;
+  padding: 12px;
+  background: #0b6623;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.2s, transform 0.12s;
+  text-align: center;
+  margin-left: auto;       /* align the button to the right inside the form */
+}
+
+.edit-btn:hover { background:#084d1b; transform: translateY(-1px); }
+
+/* Small screens: stack columns and increase spacing */
+@media (max-width: 900px) {
+  .profile-wrapper { padding: 0 18px; max-width: 940px; }
+  .profile-grid { grid-template-columns: 1fr; gap: 20px; }
+  .profile-menu { order: 2; }    /* place menu below the form if needed */
+  .profile-form { max-width: 100%; }
+  .edit-btn { width: 100%; margin-left: 0; }
+}
+
+@media (max-width: 480px) {
+  .profile-wrapper { margin: 20px auto; padding: 0 12px; }
+  .profile-title { font-size: 24px; }
+}

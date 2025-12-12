@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "/api/",
+  baseURL: import.meta.env.VITE_API_URL,
   timeout: 10000,
 });
 
@@ -122,17 +122,17 @@ export { api as axiosInstance };
 // --- Authentication ---
 export async function login(credentials) {
   // expected credentials: { email, password }
-  const res = await api.post("auth/login/", credentials);
+  const res = await api.post("/api/auth/login/", credentials);
   return res.data;
 }
 
 export async function register(payload) {
   try {
-    const res = await api.post("auth/register/", payload);
+    const res = await api.post("/api/auth/registration/", payload);
     return res.data;
   } catch {
     // fallback attempt
-    const res = await api.post("auth/signup/", payload);
+    const res = await api.post("/api/auth/registration", payload);
     return res.data;
   }
 }

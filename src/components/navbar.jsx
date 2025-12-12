@@ -22,10 +22,10 @@ export default function Navbar({cartItems}) {
       <ul className="nav-links">
         <Link to="/">Home</Link>
         <li>Categories</li>
-        <li>Discover</li>
         <Link to="/about">About Us</Link>
         <Link to="/safety">Trust & Safety</Link>
         <Link to="/cart">cart {cartItems.length}</Link>
+         <Link to="/profile">Profile</Link>
       </ul>
 
       <div className="nav-actions">
