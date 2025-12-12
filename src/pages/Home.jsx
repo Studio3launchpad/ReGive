@@ -4,7 +4,7 @@ import StatsSection from "../components/statsSection.jsx";
 import CategorySection from "../components/CategorySection.jsx";
 import ProductCard from '../components/productcard.jsx';
 import HowItWorksSection from "./../components/HowItWorksSection.jsx";
-import TestimonialCard  from '../components/TestimonialCard.jsx';
+import TestimonialCard from '../components/TestimonialCard.jsx';
 import ImpactSection from "../components/ImpactSection";
 import Footer from "../components/Footer.jsx";
 
@@ -22,14 +22,14 @@ import "../styles/footer.css";
 
 import ProductGrid from "../components/ProductGrid.jsx";
 
-const Home = ({products}) => (
+const Home = ({ products, addProduct }) => (
   <>
-    <HeroSection />
+    <HeroSection addProduct={addProduct} />
     <StatsSection />
     <CategorySection />
     <ProductGrid products={products} />
     <HowItWorksSection />
-    <TestimonialCard/>
+    <TestimonialCard />
     <ImpactSection />
     <Footer />
   </>

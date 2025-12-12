@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { Navigate, useLocation } from "react-router-dom";
-import { login as apiLogin, register as apiRegister, setAuthToken } from "../services/api";
+import { setAuthToken } from "../services/api";
 
 const AuthContext = createContext(null);
 
@@ -27,18 +27,18 @@ export function AuthProvider({ children }) {
 
   // signIn: call API and persist token + user
   const signIn = async (credentials) => {
-    // credentials: { email, password } (API expects email)
-    const data = await apiLogin(credentials);
-
-    // data may contain token/key/access and user info
-    const tokenValue = data?.token || data?.key || data?.access || data?.auth_token || null;
-    const userObj = data?.user || data?.data || (tokenValue && { email: credentials.email }) || data;
-
-    if (tokenValue) {
-      setToken(tokenValue);
-      setAuthToken(tokenValue);
+    // Simulate auth locally (no backend). Accept any non-empty email/password.
+    const { email, password } = credentials || {};
+    if (!email || !password) {
+      throw new Error("Email and password are required");
     }
 
+    // create a fake token and user object
+    const tokenValue = `fake-token-${btoa(email + ":" + Date.now())}`;
+    const userObj = { email };
+
+    setToken(tokenValue);
+    setAuthToken(tokenValue);
     setUser(userObj);
     localStorage.setItem("rg_user", JSON.stringify({ user: userObj, token: tokenValue }));
 
@@ -50,21 +50,20 @@ export function AuthProvider({ children }) {
     try {
       // eslint-disable-next-line no-console
       console.log("[AuthContext] user/token changed:", { user, token });
-    } catch (e) {}
+    } catch (e) { }
   }, [user, token]);
 
   const signUp = async (payload) => {
-    const data = await apiRegister(payload);
-    // attempt to extract token and user similar to signIn
-    const tokenValue = data?.token || data?.key || data?.access || data?.auth_token || null;
-    const userObj = data?.user || data || null;
+    // Simulate sign up locally: accept payload with email/password
+    const { email, password } = payload || {};
+    if (!email || !password) throw new Error("Email and password are required");
 
-    if (tokenValue) {
-      setToken(tokenValue);
-      setAuthToken(tokenValue);
-    }
+    const tokenValue = `fake-token-${btoa(email + ":" + Date.now())}`;
+    const userObj = { email };
 
-    if (userObj) setUser(userObj);
+    setToken(tokenValue);
+    setAuthToken(tokenValue);
+    setUser(userObj);
     localStorage.setItem("rg_user", JSON.stringify({ user: userObj, token: tokenValue }));
 
     return { user: userObj, token: tokenValue };

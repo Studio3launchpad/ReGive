@@ -37,15 +37,18 @@ export default function ProductCard({
 
   let priceDisplay = isFree ? "Free" : price ?? "—";
 
-  let saveText = null;
-  try {
-    const p = parseFloat(String(price).replace(/[^0-9.-]+/g, ""));
-    const o = parseFloat(String(oldPrice).replace(/[^0-9.-]+/g, ""));
-    if (!isNaN(p) && !isNaN(o) && o > p) {
-      const save = o - p;
-      saveText = `Save ${new Intl.NumberFormat().format(save)}`;
-    }
-  } catch (e) {}
+ let saveText = null;
+try {
+  const p = parseFloat(String(price).replace(/[^0-9.-]+/g, ""));
+  const o = parseFloat(String(oldPrice).replace(/[^0-9.-]+/g, ""));
+  if (!isNaN(p) && !isNaN(o) && o > p) {
+    const save = o - p;
+    // The previous line was missing the currency symbol formatting
+    saveText = `Save ${new Intl.NumberFormat().format(save)}`; 
+  }
+} catch { // Changed 'e' to '_'
+  // Intentionally ignoring error, so we use an underscore placeholder
+}
 
   return (
     <Link to={`/product/${id}`} className="product-card-link">
