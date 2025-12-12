@@ -19,6 +19,7 @@ export default function HeroSection({ addProduct }) {
     image: "",
     video: "",
   });
+  const [imagePreview, setImagePreview] = useState("");
 
   const onChange = (k, v) => setForm((s) => ({ ...s, [k]: v }));
 
@@ -68,6 +69,7 @@ export default function HeroSection({ addProduct }) {
       image: "",
       video: "",
     });
+    setImagePreview("");
   };
 
   return (
@@ -157,8 +159,28 @@ export default function HeroSection({ addProduct }) {
               <label>Location</label>
               <input value={form.location} onChange={(e) => onChange('location', e.target.value)} />
 
-              <label>Image URL</label>
-              <input value={form.image} onChange={(e) => onChange('image', e.target.value)} />
+              <label>Image</label>
+              <input type="file" accept="image/*" onChange={(e) => {
+                const file = e.target.files && e.target.files[0];
+                if (!file) return;
+                if (file.size > 3 * 1024 * 1024) {
+                  alert('Please select an image smaller than 3MB');
+                  return;
+                }
+                const reader = new FileReader();
+                reader.onload = () => {
+                  const dataUrl = reader.result;
+                  onChange('image', dataUrl);
+                  setImagePreview(dataUrl);
+                };
+                reader.readAsDataURL(file);
+              }} />
+
+              {imagePreview ? (
+                <div style={{ marginTop: 8 }}>
+                  <img src={imagePreview} alt="preview" style={{ maxWidth: '100%', maxHeight: 180, borderRadius: 8 }} />
+                </div>
+              ) : null}
 
               <div style={{ display: 'flex', gap: 8, marginTop: 12 }}>
                 <button type="submit" className="btn-yellow">Add Item</button>
