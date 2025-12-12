@@ -4,24 +4,33 @@ import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext.jsx";
 
-export default function CartPage({cartItems, updateQty, removeItem}) {
+export default function CartPage({ cartItems, updateQty, removeItem }) {
 
   console.log(cartItems);
-  
-  
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const { user } = useAuth();
 
-  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.qty, 0);
+  // Safely parse price: handle string, number, or negative values
+  const parsePrice = (price) => {
+    if (price === null || price === undefined) return 0;
+    const num = parseFloat(String(price).replace(/[^0-9.-]/g, ""));
+    return isNaN(num) ? 0 : Math.abs(num);
+  };
+
+  const subtotal = cartItems.reduce((sum, item) => {
+    const itemPrice = parsePrice(item.price);
+    const qty = item.qty || 1;
+    return sum + (itemPrice * qty);
+  }, 0);
 
   return (
-    <div className="cart-page" style={{backgroundColor: "white"}}>
-  
+    <div className="cart-page" style={{ backgroundColor: "white" }}>
+
       <div className="cart-title-container">
         <h1 className="cart-title">SHOPPING CART</h1>
       </div>
-      
+
       <div className="cart-container">
 
         <table className="cart-table">
@@ -36,35 +45,38 @@ export default function CartPage({cartItems, updateQty, removeItem}) {
           </thead>
 
           <tbody>
-            {cartItems.map((item) => (
-              <tr key={item.id}>
-                <td className="cart-product">
-                  <img src={item.image} alt="" />
-                  <div>
-                    <h4>{item.name}</h4>
-                    <small>{item.description}</small>
-                  </div>
-                </td>
+            {cartItems.map((item) => {
+              const itemPrice = parsePrice(item.price);
+              return (
+                <tr key={item.id}>
+                  <td className="cart-product">
+                    <img src={item.image || ""} alt="" />
+                    <div>
+                      <h4>{item.name || item.title || "Product"}</h4>
+                      <small>{item.description || ""}</small>
+                    </div>
+                  </td>
 
-                <td>${item.price.toFixed(2)}</td>
+                  <td>${itemPrice.toFixed(2)}</td>
 
-                <td>
-                  <div className="qty-box">
-                    <button onClick={() => updateQty(item.id, "dec")}>-</button>
-                    <span>{item.qty}</span>
-                    <button onClick={() => updateQty(item.id, "inc")}>+</button>
-                  </div>
-                </td>
+                  <td>
+                    <div className="qty-box">
+                      <button onClick={() => updateQty(item.id, "dec")}>-</button>
+                      <span>{item.qty}</span>
+                      <button onClick={() => updateQty(item.id, "inc")}>+</button>
+                    </div>
+                  </td>
 
-                <td className="total-price">
-                  ${(item.price * item.qty).toFixed(2)}
-                </td>
+                  <td className="total-price">
+                    ${(itemPrice * item.qty).toFixed(2)}
+                  </td>
 
-                <td>
-                  <button className="remove-btn" onClick={() => removeItem(item.id)}>✖</button>
-                </td>
-              </tr>
-            ))}
+                  <td>
+                    <button className="remove-btn" onClick={() => removeItem(item.id)}>✖</button>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
 
         </table>
@@ -139,7 +151,7 @@ export default function CartPage({cartItems, updateQty, removeItem}) {
 
         </div>
 
-            
+
 
       </div>
       <Footer />

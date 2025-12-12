@@ -37,18 +37,18 @@ export default function ProductCard({
 
   let priceDisplay = isFree ? "Free" : price ?? "—";
 
- let saveText = null;
-try {
-  const p = parseFloat(String(price).replace(/[^0-9.-]+/g, ""));
-  const o = parseFloat(String(oldPrice).replace(/[^0-9.-]+/g, ""));
-  if (!isNaN(p) && !isNaN(o) && o > p) {
-    const save = o - p;
-    // The previous line was missing the currency symbol formatting
-    saveText = `Save ${new Intl.NumberFormat().format(save)}`; 
+  let saveText = null;
+  try {
+    const p = parseFloat(String(price).replace(/[^0-9.-]+/g, ""));
+    const o = parseFloat(String(oldPrice).replace(/[^0-9.-]+/g, ""));
+    if (!isNaN(p) && !isNaN(o) && o > p) {
+      const save = o - p;
+      // The previous line was missing the currency symbol formatting
+      saveText = `Save ${new Intl.NumberFormat().format(save)}`;
+    }
+  } catch { // Changed 'e' to '_'
+    // Intentionally ignoring error, so we use an underscore placeholder
   }
-} catch { // Changed 'e' to '_'
-  // Intentionally ignoring error, so we use an underscore placeholder
-}
 
   return (
     <Link to={`/product/${id}`} className="product-card-link">
@@ -68,9 +68,7 @@ try {
             }}
           />
           <button className="wishlist-btn">♡</button>
-        </div>
-
-        {/* Content */}
+        </div>        {/* Content */}
         <div className="product-info">
           <h3 className="product-title">{title}</h3>
 

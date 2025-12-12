@@ -25,6 +25,7 @@ export default function App() {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const LOCAL_PRODUCTS_KEY = "rg_local_products";
+  const CART_ITEMS_KEY = "rg_cart_items";
 
   useEffect(() => {
     let mounted = true;
@@ -55,6 +56,17 @@ export default function App() {
 
       if (mounted) setProducts([...(local || []), ...(items || [])]);
     };
+
+    // load cart items from localStorage
+    try {
+      const cartRaw = localStorage.getItem(CART_ITEMS_KEY);
+      if (cartRaw && mounted) {
+        const cart = JSON.parse(cartRaw);
+        if (Array.isArray(cart)) setCartItems(cart);
+      }
+    } catch (e) {
+      console.warn("Failed to parse cart items", e);
+    }
 
     load();
 
@@ -111,24 +123,40 @@ export default function App() {
       return;
     }
 
-    setCartItems((prev) => [...prev, { ...product, qty: 1 }]);
+    const newCart = [...cartItems, { ...product, qty: 1 }];
+    setCartItems(newCart);
+    try {
+      localStorage.setItem(CART_ITEMS_KEY, JSON.stringify(newCart));
+    } catch (e) {
+      console.warn("Failed to persist cart items", e);
+    }
   };
 
   const updateQty = (id, type) => {
-    setCartItems((prev) =>
-      prev.map((item) =>
-        item.id === id
-          ? {
-            ...item,
-            qty: type === "inc" ? item.qty + 1 : Math.max(1, item.qty - 1),
-          }
-          : item
-      )
+    const newCart = cartItems.map((item) =>
+      item.id === id
+        ? {
+          ...item,
+          qty: type === "inc" ? item.qty + 1 : Math.max(1, item.qty - 1),
+        }
+        : item
     );
+    setCartItems(newCart);
+    try {
+      localStorage.setItem(CART_ITEMS_KEY, JSON.stringify(newCart));
+    } catch (e) {
+      console.warn("Failed to persist cart items", e);
+    }
   };
 
   const removeItem = (id) => {
-    setCartItems((prev) => prev.filter((item) => item.id !== id));
+    const newCart = cartItems.filter((item) => item.id !== id);
+    setCartItems(newCart);
+    try {
+      localStorage.setItem(CART_ITEMS_KEY, JSON.stringify(newCart));
+    } catch (e) {
+      console.warn("Failed to persist cart items", e);
+    }
   };
 
   return (
